@@ -55,8 +55,10 @@ export default function LoginScreen({ navigation }) {
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
-        <View style={styles.header}>
+      <ScrollView contentContainerStyle={styles.scrollContainer}>        <View style={styles.header}>
+          <View style={styles.logoContainer}>
+            <Feather name="activity" size={60} color="#007AFF" />
+          </View>
           <Text style={styles.title}>Welcome to FitBuddy</Text>
           <Text style={styles.subtitle}>Your fitness journey starts here</Text>
         </View>
@@ -139,7 +141,8 @@ export default function LoginScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8f9fa',
+    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    backgroundColor: '#667eea',
   },
   scrollContainer: {
     flexGrow: 1,
@@ -150,15 +153,34 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 40,
   },
+  logoContainer: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    backgroundColor: 'rgba(255,255,255,0.2)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.3,
+    shadowRadius: 20,
+    elevation: 10,
+  },
   title: {
-    fontSize: 32,
+    fontSize: 36,
     fontWeight: 'bold',
-    color: '#007AFF',
+    color: '#ffffff',
     marginBottom: 8,
+    textAlign: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
   },
   subtitle: {
-    fontSize: 16,
-    color: '#666',
+    fontSize: 18,
+    color: 'rgba(255,255,255,0.8)',
     textAlign: 'center',
   },
   form: {
@@ -167,71 +189,88 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'white',
-    borderRadius: 10,
+    backgroundColor: 'rgba(255,255,255,0.95)',
+    borderRadius: 15,
     marginBottom: 15,
-    paddingHorizontal: 15,
-    elevation: 2,
+    paddingHorizontal: 20,
+    elevation: 5,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.3)',
   },
   inputIcon: {
-    marginRight: 10,
+    marginRight: 15,
+    color: '#007AFF',
   },
   input: {
     flex: 1,
-    paddingVertical: 15,
+    paddingVertical: 18,
     fontSize: 16,
     color: '#333',
   },
   eyeIcon: {
-    padding: 5,
+    padding: 8,
   },
   errorText: {
-    color: '#FF3B30',
-    fontSize: 12,
+    color: '#FF6B6B',
+    fontSize: 14,
     marginBottom: 10,
-    marginLeft: 5,
+    marginLeft: 10,
+    backgroundColor: 'rgba(255,255,255,0.9)',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 8,
+    alignSelf: 'flex-start',
   },
   loginButton: {
+    background: 'linear-gradient(45deg, #007AFF, #0056CC)',
     backgroundColor: '#007AFF',
-    borderRadius: 10,
-    paddingVertical: 15,
+    borderRadius: 15,
+    paddingVertical: 18,
     alignItems: 'center',
     marginTop: 20,
-    elevation: 3,
+    elevation: 8,
     shadowColor: '#007AFF',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.4,
+    shadowRadius: 12,
   },
   disabledButton: {
-    backgroundColor: '#ccc',
+    backgroundColor: 'rgba(255,255,255,0.3)',
   },
   loginButtonText: {
     color: 'white',
-    fontSize: 18,
-    fontWeight: '600',
+    fontSize: 20,
+    fontWeight: 'bold',
   },
   demoCredentials: {
-    backgroundColor: '#e3f2fd',
-    padding: 15,
-    borderRadius: 8,
-    marginTop: 20,
-    borderLeftWidth: 4,
+    backgroundColor: 'rgba(255,255,255,0.95)',
+    padding: 20,
+    borderRadius: 15,
+    marginTop: 30,
+    borderLeftWidth: 5,
     borderLeftColor: '#007AFF',
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
   demoTitle: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: '#333',
-    marginBottom: 5,
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#007AFF',
+    marginBottom: 8,
+    textAlign: 'center',
   },
   demoText: {
-    fontSize: 13,
-    color: '#666',
+    fontSize: 14,
+    color: '#333',
+    textAlign: 'center',
+    marginBottom: 2,
   },
   registerLink: {
     marginTop: 30,
@@ -239,10 +278,11 @@ const styles = StyleSheet.create({
   },
   registerText: {
     fontSize: 16,
-    color: '#666',
+    color: 'rgba(255,255,255,0.9)',
   },
   registerTextBold: {
-    color: '#007AFF',
-    fontWeight: '600',
+    color: '#ffffff',
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
   },
 });
